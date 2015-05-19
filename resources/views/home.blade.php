@@ -30,6 +30,10 @@
 						</div>
 				    @endif
 
+				    <div class="alert alert-success hide" id="upload-success">
+						Upload realizado com sucesso!
+					</div>
+
 				    <table class="table table-bordered table-striped table-hover">
 				    	<thead>
 				    		<tr>
@@ -69,11 +73,11 @@
 	  'use strict';
 	  $(document).ready(function()
 	  {
-	  	var $fileupload = $('#fileupload');
+	  	var $fileupload     = $('#fileupload'),
+	  		$upload_success = $('#upload-success');
 
 	    $fileupload.fileupload({
 	        url: '/upload',
-	        dataType: 'json',
 	        formData: {_token: $fileupload.data('token'), userId: $fileupload.data('userId')},
 	        progressall: function (e, data) {
 	            var progress = parseInt(data.loaded / data.total * 100, 10);
@@ -81,9 +85,14 @@
 	                'width',
 	                progress + '%'
 	            );
-	        }
-	    }).bind('fileuploadcompleted', function (e, data) {
-	       	document.location.reload();
+	        },
+	        done: function (e, data) {
+	        	$upload_success.removeClass('hide').hide().slideDown('fast');
+
+			    setTimeout(function(){
+			    	location.reload();
+			    }, 2000);
+			}
 	    });
 	  });
 	})(window.jQuery);
