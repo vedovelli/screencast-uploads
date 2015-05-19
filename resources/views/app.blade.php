@@ -62,7 +62,7 @@
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
 	<script src="/bower_components/jquery-file-upload/js/vendor/jquery.ui.widget.js"></script>
-	<script src="/bower_components/jquery-file-upload/js/jquery.fileupload.js"></script>\
+	<script src="/bower_components/jquery-file-upload/js/jquery.fileupload.js"></script>
 	@show
 
 </body>
